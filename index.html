@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Belum Dapat Diakses</title>
+    <style>
+        /* Gaya umum */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #2980b9, #8e44ad);
+            color: #fff;
+            overflow: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Loading container */
+        .loading-container {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .spinner {
+            width: 80px;
+            height: 80px;
+            border: 8px solid #ddd;
+            border-top: 8px solid #fff;
+            border-radius: 50%;
+            animation: spin 2s linear infinite;
+            margin: 20px 0;
+            box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .loading-text {
+            font-size: 24px;
+            font-weight: 600;
+            color: #fff;
+            letter-spacing: 2px;
+            opacity: 0;
+            animation: fadeInText 1.5s 1s forwards;
+        }
+
+        /* Animasi spinner */
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Animasi fade-in */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Animasi fade-in untuk teks */
+        @keyframes fadeInText {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Efek blur untuk latar belakang */
+        .background-blur {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            filter: blur(8px);
+            z-index: -1;
+        }
+
+        /* Animasi gradient */
+        @keyframes gradientAnimation {
+            0% { background: linear-gradient(135deg, #2980b9, #8e44ad); }
+            50% { background: linear-gradient(135deg, #16a085, #f39c12); }
+            100% { background: linear-gradient(135deg, #2980b9, #8e44ad); }
+        }
+
+        /* Latar belakang animasi */
+        .animated-background {
+            animation: gradientAnimation 10s ease infinite;
+        }
+
+        /* Responsiveness: Menyesuaikan ukuran untuk perangkat kecil */
+        @media (max-width: 768px) {
+            .spinner {
+                width: 60px;
+                height: 60px;
+                border-width: 6px;
+            }
+
+            .loading-text {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .spinner {
+                width: 50px;
+                height: 50px;
+                border-width: 5px;
+            }
+
+            .loading-text {
+                font-size: 18px;
+                letter-spacing: 1.5px;
+            }
+        }
+
+    </style>
+</head>
+<body class="animated-background">
+    <div class="background-blur"></div>
+    <div class="loading-container" id="loading">
+        <div class="spinner"></div>
+        <p class="loading-text">Halaman Ini Sementara Belum dapat diakses...</p>
+    </div>
+
+    <script>
+        // Simulasi loading terus-menerus
+        window.addEventListener("load", function () {
+            // Animasi loading terus berlangsung tanpa perubahan ke halaman lain
+            setTimeout(() => {
+                // Animasi tetap berjalan, tidak ada perubahan ke halaman utama
+            }, 5000); // Durasi tetap selama halaman dimuat
+        });
+    </script>
+</body>
+</html>
